@@ -1,6 +1,6 @@
 
 # Torre-news
-News website to innovea-test
+News website to innovea-test homologation
 
 ## Features
 
