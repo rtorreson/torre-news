@@ -1,0 +1,61 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page{
+  width: min(1200px, 90vw);
+  margin-inline: auto
+}
+
+.brocken-img::before {
+  content: '';
+  width: 100%;
+  height: calc(100% + 10px);
+  background-color: #ccc;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  transform: translateY(-50%);
+}
+
+img {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+  line-height: 2;
+  text-align: center;
+
+  min-width: 100px;
+  min-height: 50px;
+  position: relative;
+}
+
+
+.brocken-img::after {
+  content: "\2639";
+
+  font-size: 18px;
+  color: rgb(100, 100, 100);
+
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  /* height: 100%; */
+}
