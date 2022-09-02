@@ -38,7 +38,7 @@ const HomePage = ({
   return (
     <div className="page">
       <MetaTags
-        title="home page"
+        title="Torreson News"
         description={`${SITE_NAME} main page`}
         url="/"
       />
