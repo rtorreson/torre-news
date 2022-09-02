@@ -14,11 +14,11 @@ function GetMenuItems(): MenuItem[] {
   return [
     {
       id: 1,
-      title: "News",
+      title: "news",
       url: "/",
       children: newsChildren,
     },
   ];
-}
+};
 
 export { GetMenuItems };

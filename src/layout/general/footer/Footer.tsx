@@ -38,17 +38,17 @@ const Footer = ({ deviceType }: { deviceType: DeviceType }) => {
               <FooterContactBox
                 icon={<LocalPhoneIcon />}
                 value={ownerData.PHONE}
-                title="Phone Number :"
+                title="phone number :"
               />
               <FooterContactBox
                 icon={<EmailIcon />}
                 value={ownerData.EMAIL}
-                title="Email :"
+                title="email :"
               />
               <FooterContactBox
                 icon={<LocationOnIcon />}
                 value={ownerData.ADDRESS}
-                title="Address :"
+                title="address :"
               />
             </FooterSegment>
           </Grid>

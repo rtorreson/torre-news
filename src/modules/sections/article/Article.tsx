@@ -11,7 +11,6 @@ const Article = ({ news, router }: { news: News; router: NextRouter }) => {
   return (
     <Box component="article" className="page" sx={{ p: 2 }}>
       {news?.urlToImage && (
-        // eslint-disable-next-line @next/next/no-img-element
         <img
           className={style["root__image"]}
           src={news.urlToImage}

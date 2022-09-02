@@ -76,6 +76,7 @@ export const getStaticProps = wrapper.getStaticProps(() => async () => {
     headlinesOptions: {
       pageSize: PAGE_SIZE,
       category: "general",
+      country: "us",
     },
   };
   try {

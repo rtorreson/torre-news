@@ -1,9 +1,7 @@
 export type Lan =
   | "en"
-  | "pt"
-;
+  | "pt";
 
 export type Country =
   | "br"
-  | "us"
-
+  | "us";

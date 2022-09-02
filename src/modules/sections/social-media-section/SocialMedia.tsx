@@ -13,7 +13,7 @@ const SocialMedia = ({
     ownerData: OwnerData
 }) => {
   return (
-    <GeneralCard title="Social Media" icon={<ShareIcon />}>
+    <GeneralCard title="Social Media" icon={<ShareIcon hidden />}>
       <SocialCard title={ownerData.PHONE} icon={<WhatsAppIcon />} />
       <SocialCard title={ownerData.LINKEDIN} icon={<LinkedInIcon />} />
       <SocialCard title={ownerData.GITHUB} icon={<GithubIcon />} />

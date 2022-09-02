@@ -1,29 +1,29 @@
-import React, { useEffect } from "react";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import { GetStaticProps, GetStaticPaths } from "next";
+import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import {
   News,
   NewsCategory,
   NewsCriteria,
   NewsStateKey,
-} from "@modules/news/libraries/news-types";
-import { identify, log } from "@root/modules/general/libraries/utils";
-import { toUrl } from "@root/modules/general/libraries/utils";
-import { fetchNewsList } from "@modules/news/store/api/news-api";
-import { wrapper } from "@root/store";
-import { putPendingNewsList } from "@root/modules/news/store/actions";
+} from '@modules/news/libraries/news-types';
+import { identify, log } from '@root/modules/general/libraries/utils';
+import { toUrl } from '@root/modules/general/libraries/utils';
+import { fetchNewsList } from '@modules/news/store/api/news-api';
+import { wrapper } from '@root/store';
+import { putPendingNewsList } from '@root/modules/news/store/actions';
 import {
   PAGE_SIZE,
   SERVICES_TITLE,
-} from "@root/modules/general/libraries/constants";
+} from '@root/modules/general/libraries/constants';
 
-const Article = dynamic(() => import("@modules/sections/article"));
+const Article = dynamic(() => import('@modules/sections/article'));
 
 const ArticlePage = ({ news }: { news: News }) => {
   const router = useRouter();
   useEffect(() => {
-    if (!news) router.push("/404");
+    if (!news) router.push('/404');
   });
   if (news) return <Article {...{ news, router }} />;
   else return <div></div>;
@@ -53,25 +53,25 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
         },
       };
     const criteria: NewsCriteria =
-      newsCtg === "top"
+      newsCtg === 'top'
         ? {
-            type: "top",
+            type: 'top',
             headlinesOptions: {
-              country: "us",
+              country: 'us',
               pageSize: PAGE_SIZE,
             },
           }
         : {
-            type: "top",
+            type: 'top',
             headlinesOptions: {
               category: newsCtg as NewsCategory,
-              country: "us",
+              country: 'us',
               pageSize: PAGE_SIZE,
             },
           };
     try {
       const newsListRes = await fetchNewsList(criteria);
-      if (newsListRes.status === "ok")
+      if (newsListRes.status === 'ok')
         news = newsListRes.articles.find(
           (item) =>
             identify(item, newsCtg as NewsStateKey).innerLink === params?.id
@@ -109,10 +109,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
       (acc, curr) => ({
         ...acc,
         [curr]: {
-          type: "top",
+          type: 'top',
           headlinesOptions: {
             category: curr,
-            country: "us",
+            country: 'us',
             pageSize: PAGE_SIZE,
           },
         },
@@ -121,9 +121,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     );
   const criteriaList: { [key in NewsStateKey]?: NewsCriteria } = {
     top: {
-      type: "top",
+      type: 'top',
       headlinesOptions: {
-        country: "us",
+        country: 'us',
         pageSize: PAGE_SIZE,
       },
     },
@@ -134,18 +134,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // top ______________________________
     const topNewsListRes =
       criteriaList.top && (await fetchNewsList(criteriaList.top));
-    if (topNewsListRes?.status === "ok" && topNewsListRes.articles)
+    if (topNewsListRes?.status === 'ok' && topNewsListRes.articles)
       topNewsList = topNewsListRes.articles.map((article) =>
-        identify(article, "top")
+        identify(article, 'top')
       );
     else topNewsList = [];
 
     // business ______________________________
     const businessNewsListRes =
       criteriaList.business && (await fetchNewsList(criteriaList.business));
-    if (businessNewsListRes?.status === "ok" && businessNewsListRes.articles)
+    if (businessNewsListRes?.status === 'ok' && businessNewsListRes.articles)
       businessNewsList = businessNewsListRes.articles.map((article) =>
-        identify(article, "business")
+        identify(article, 'business')
       );
     else businessNewsList = [];
 
@@ -154,38 +154,38 @@ export const getStaticPaths: GetStaticPaths = async () => {
       criteriaList.entertainment &&
       (await fetchNewsList(criteriaList.entertainment));
     if (
-      entertainmentNewsListRes?.status === "ok" &&
+      entertainmentNewsListRes?.status === 'ok' &&
       entertainmentNewsListRes.articles
     )
       entertainmentNewsList = entertainmentNewsListRes.articles.map((article) =>
-        identify(article, "entertainment")
+        identify(article, 'entertainment')
       );
     else entertainmentNewsList = [];
 
     // general ______________________________
     const generalNewsListRes =
       criteriaList.general && (await fetchNewsList(criteriaList.general));
-    if (generalNewsListRes?.status === "ok" && generalNewsListRes.articles)
+    if (generalNewsListRes?.status === 'ok' && generalNewsListRes.articles)
       generalNewsList = generalNewsListRes.articles.map((article) =>
-        identify(article, "general")
+        identify(article, 'general')
       );
     else generalNewsList = [];
 
     // health ______________________________
     const healthNewsListRes =
       criteriaList.health && (await fetchNewsList(criteriaList.health));
-    if (healthNewsListRes?.status === "ok" && healthNewsListRes.articles)
+    if (healthNewsListRes?.status === 'ok' && healthNewsListRes.articles)
       healthNewsList = healthNewsListRes.articles.map((article) =>
-        identify(article, "health")
+        identify(article, 'health')
       );
     else healthNewsList = [];
 
     // sport ______________________________
     const sportsNewsListRes =
       criteriaList.sports && (await fetchNewsList(criteriaList.sports));
-    if (sportsNewsListRes?.status === "ok" && sportsNewsListRes.articles)
+    if (sportsNewsListRes?.status === 'ok' && sportsNewsListRes.articles)
       sportsNewsList = sportsNewsListRes.articles.map((article) =>
-        identify(article, "sports")
+        identify(article, 'sports')
       );
     else sportsNewsList = [];
 
@@ -193,11 +193,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const technologyNewsListRes =
       criteriaList.technology && (await fetchNewsList(criteriaList.technology));
     if (
-      technologyNewsListRes?.status === "ok" &&
+      technologyNewsListRes?.status === 'ok' &&
       technologyNewsListRes.articles
     )
       technologyNewsList = technologyNewsListRes.articles.map((article) =>
-        identify(article, "technology")
+        identify(article, 'technology')
       );
     else technologyNewsList = [];
 

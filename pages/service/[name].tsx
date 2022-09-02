@@ -53,6 +53,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
           type: "top",
           headlinesOptions: {
             category: serviceTitle as NewsCategory,
+            country: "us",
             pageSize: PAGE_SIZE,
           },
         });
