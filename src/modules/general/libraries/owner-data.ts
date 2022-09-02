@@ -5,8 +5,6 @@ export const EMAIL = 'rafael.torreson@hotmail.com';
 export const ADDRESS = 'São Paulo';
 export const LINKEDIN = 'Rafael Torreson';
 export const LINKEDIN_LINK = 'https://www.linkedin.com/in/rafaeltorreson/';
-export const GITHUB = 'rtorreson';
-export const GITHUB_LINK = 'https://github.com/rtorreson';
 
 export interface OwnerData {
   PHONE: string;
@@ -14,5 +12,4 @@ export interface OwnerData {
   ADDRESS: string;
   LINKEDIN_LINK: string;
   LINKEDIN: string;
-  GITHUB: string;
 }
