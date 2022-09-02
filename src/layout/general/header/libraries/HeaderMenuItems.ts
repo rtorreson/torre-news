@@ -18,12 +18,7 @@ function GetMenuItems(): MenuItem[] {
       url: "/",
       children: newsChildren,
     },
-    {
-      id: 2,
-      title: "About us",
-      url: "/about-us",
-    }
-  ].reverse();
+  ];
 }
 
 export { GetMenuItems };

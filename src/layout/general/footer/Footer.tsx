@@ -23,7 +23,7 @@ const Footer = ({ deviceType }: { deviceType: DeviceType }) => {
       <Box sx={{ minHeight: `${FOOTER_HEIGHT}px`, bgcolor:palette.primary.dark, color: palette.common.white, mt:6}}>
         <Grid sx={{width:CONTAINER_WIDTH, mx:"auto"}} container spacing={2}>
           <Grid item xs={12} sm={6} md={2}>
-            <FooterSegment title="fast access">
+            <FooterSegment title="Fast Access">
               <ul>
                 {footerLinks.map((link, i) => (
                   <Link href={link.url} passHref key={link.id}>
@@ -34,21 +34,21 @@ const Footer = ({ deviceType }: { deviceType: DeviceType }) => {
             </FooterSegment>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <FooterSegment title="contact us">
+            <FooterSegment title="Contact Us">
               <FooterContactBox
                 icon={<LocalPhoneIcon />}
                 value={ownerData.PHONE}
-                title="phone number :"
+                title="Phone Number :"
               />
               <FooterContactBox
                 icon={<EmailIcon />}
                 value={ownerData.EMAIL}
-                title="email :"
+                title="Email :"
               />
               <FooterContactBox
                 icon={<LocationOnIcon />}
                 value={ownerData.ADDRESS}
-                title="address :"
+                title="Address :"
               />
             </FooterSegment>
           </Grid>
