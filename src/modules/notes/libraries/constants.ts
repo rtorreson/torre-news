@@ -1,0 +1,1 @@
+export const NOTES_URL = "https://nnews-647c7-default-rtdb.firebaseio.com/notes.json"

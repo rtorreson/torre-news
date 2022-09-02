@@ -1,0 +1,10 @@
+.root {
+    margin-top: 1rem;
+    cursor: pointer;
+  &__image {
+    // width: min(150px, 20vw);
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+}
